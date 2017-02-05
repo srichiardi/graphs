@@ -7,17 +7,21 @@ class EntityCollection(object):
     
     def __init__(self):
         ''' Class collecting entities of the same type. '''
-        self._EntityRegistry = {}
+        self._entity_reg = {}
         
         
     def addEntity(self, new_entity):
         ''' '''
-        self._EntityRegistry[new_entity.name] = new_entity
+        self._entity_reg[new_entity.name] = new_entity
     
     
     def getEntity(self, entity_name):
         ''' '''
-        return self._EntityRegistry[entity_name]
+        return self._entity_reg[entity_name]
+    
+    
+    def getEntities(self):
+        ''' Generator returns all entities in the registry'''
     
     
     def removeEntity(self, entity):
@@ -30,7 +34,7 @@ class EntityTypes(object):
     
     
     def __init__(self):
-        ''' Helper class to store entities by type. '''
+        ''' Class storing entities by type. '''
         self._collections = defaultdict(EntityCollection)
         
         
